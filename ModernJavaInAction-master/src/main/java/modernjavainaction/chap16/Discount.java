@@ -16,7 +16,10 @@ public class Discount {
   }
 
   public static String applyDiscount(Quote quote) {
-    return quote.getShopName() + " price is " + Discount.apply(quote.getPrice(), quote.getDiscountCode());
+
+    System.out.println("About to apply discount to " + quote);
+
+    return quote.getShopName() + " price is " + Discount.apply(quote.getPrice(), quote.getDiscountCode() ) + "\n";
   }
 
   private static double apply(double price, Code code) {

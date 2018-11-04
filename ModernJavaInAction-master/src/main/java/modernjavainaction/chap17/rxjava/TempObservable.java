@@ -3,7 +3,9 @@ package modernjavainaction.chap17.rxjava;
 import static java.util.stream.Collectors.toList;
 
 import java.util.Arrays;
+
 import java.util.concurrent.TimeUnit;
+
 
 import io.reactivex.Observable;
 import modernjavainaction.chap17.TempInfo;

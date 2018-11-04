@@ -15,10 +15,18 @@ public class Shop {
     random = new Random(name.charAt(0) * name.charAt(1) * name.charAt(2));
   }
 
-  public String getPrice(String product) {
+  public String getPrice(String product, Shop shop) {
+
+    System.out.println("Getting price for " + product + " at " + shop);
+
     double price = calculatePrice(product);
     Discount.Code code = Discount.Code.values()[random.nextInt(Discount.Code.values().length)];
-    return name + ":" + price + ":" + code;
+
+    String priceStr = name + ":" + price + ":" + code;
+
+    System.out.println("Price is " + priceStr);
+
+    return priceStr;
   }
 
   public double calculatePrice(String product) {
@@ -30,4 +38,10 @@ public class Shop {
     return name;
   }
 
+  @Override
+  public String toString() {
+    return "Shop{" +
+            "name='" + name +
+            '}';
+  }
 }

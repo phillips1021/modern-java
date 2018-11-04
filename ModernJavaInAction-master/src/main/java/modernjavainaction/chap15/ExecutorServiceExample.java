@@ -2,7 +2,8 @@ package modernjavainaction.chap15;
 
 import static modernjavainaction.chap15.Functions.fo;
 import static modernjavainaction.chap15.Functions.go;
-
+import static modernjavainaction.chap15.Functions.gf;
+import static modernjavainaction.chap15.Functions.ff;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -14,8 +15,8 @@ public class ExecutorServiceExample {
     int x = 1337;
 
     ExecutorService executorService = Executors.newFixedThreadPool(2);
-    Future<Integer> y = executorService.submit(() -> fo(x));
-    Future<Integer> z = executorService.submit(() -> go(x));
+    Future<Integer> y = ff(x);
+    Future<Integer> z = gf(x);
     System.out.println(y.get() + z.get());
 
     executorService.shutdown();

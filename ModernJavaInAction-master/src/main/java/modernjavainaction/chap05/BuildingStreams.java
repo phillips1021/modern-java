@@ -4,9 +4,15 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 import java.util.function.IntSupplier;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class BuildingStreams {
 
@@ -71,6 +77,14 @@ public class BuildingStreams {
     IntStream.generate(fib)
         .limit(10)
         .forEach(System.out::println);
+
+    IntStream randomInts = new Random().ints(50, 1, 51);
+
+   List<Integer> randomIntList = randomInts.filter(r -> r > 25).boxed().collect(toList());
+
+   randomIntList.forEach(System.out::println);
+
+
 
     long uniqueWords = Files.lines(Paths.get("lambdasinaction/chap5/data.txt"), Charset.defaultCharset())
         .flatMap(line -> Arrays.stream(line.split(" ")))

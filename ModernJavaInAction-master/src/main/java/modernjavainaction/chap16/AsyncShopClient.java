@@ -13,7 +13,7 @@ public class AsyncShopClient {
     try {
       System.out.println("Price is " + futurePrice.get());
     } catch (Exception e) {
-      throw new RuntimeException(e);
+      System.out.println(e.getMessage());
     }
     long retrivalTime = ((System.nanoTime() - start) / 1_000_000);
     System.out.println("Price returned after " + retrivalTime + " msecs");

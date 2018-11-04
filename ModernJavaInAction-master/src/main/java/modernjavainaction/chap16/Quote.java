@@ -13,11 +13,18 @@ public class Quote {
   }
 
   public static Quote parse(String s) {
+
+    System.out.println("Parsing " + s + " into a Quote");
     String[] split = s.split(":");
     String shopName = split[0];
     double price = Double.parseDouble(split[1]);
     Discount.Code discountCode = Discount.Code.valueOf(split[2]);
-    return new Quote(shopName, price, discountCode);
+
+    Quote aQuote = new Quote(shopName, price, discountCode);
+
+    System.out.println("Quote returned is " + aQuote);
+
+    return aQuote;
   }
 
   public String getShopName() {
@@ -32,4 +39,12 @@ public class Quote {
     return discountCode;
   }
 
+  @Override
+  public String toString() {
+    return "Quote{" +
+            "shopName='" + shopName + '\'' +
+            ", price=" + price +
+            ", discountCode=" + discountCode +
+            '}';
+  }
 }
